@@ -5,6 +5,9 @@ let main = {
             // function(){} 쓰려면 위에 let _this = this; 해줘야됨
             this.save();
         });
+        $("#btn-login").on("click", () => {
+            this.login();
+        });
     },
 
     save:function () {
@@ -16,7 +19,7 @@ let main = {
         };
         $.ajax({
             type: "post",
-            url: "/api/member",
+            url: "/api/join",
             data: JSON.stringify(data), // http body 데이터
             contentType: "application/json; charset=utf-8", // body 데이터가 어떤 타입인지
             dataType: "json" // 요청에 대한 응답이 왔을 때 기본적으로 문자열이다, 근데 생긴 게 json 이라면 자바스크립트 객체로 변환
@@ -26,6 +29,27 @@ let main = {
             location.href = "/";
         }).fail(function () {
             alert("SSIBAL");
+        });
+    },
+
+    login:function () {
+        let data = {
+            memberName: $('#memberName').val(),
+            password: $('#password').val()
+        };
+        $.ajax({
+            type: "post",
+            url: "/api/login",
+            data: JSON.stringify(data), // http body 데이터
+            contentType: "application/json; charset=utf-8", // body 데이터가 어떤 타입인지
+            dataType: "json" // 요청에 대한 응답이 왔을 때 기본적으로 문자열이다, 근데 생긴 게 json 이라면 자바스크립트 객체로 변환
+        }).done(function (result) {
+            console.log(result);
+            alert("LOGIN Complete");
+            location.href = "/";
+        }).fail(function (error) {
+            alert("아니야 시발");
+            alert(JSON.stringify(error));
         });
     }
 }
