@@ -6,21 +6,21 @@
     <!-- 회원가입 -->
     <form>
         <div class="form-group">
-            <label for="memberName">MemberName:</label>
-            <input type="text" class="form-control" placeholder="Enter memberName" id="memberName">
+            <label for="username">UserName:</label>
+            <input type="text" name="username" class="form-control" placeholder="Enter memberName" id="username">
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" class="form-control" placeholder="Enter password" id="password">
+            <input type="password" name="password" class="form-control" placeholder="Enter password" id="password">
         </div>
         <div class="form-group">
             <label for="email">Email address:</label>
-            <input type="email" class="form-control" placeholder="Enter email" id="email">
+            <input type="email" name="email" class="form-control" placeholder="Enter email" id="email">
         </div>
     </form>
-    <button id="btn-save" class="btn btn-primary">Submit</button>
+    <button id="btn-save" class="btn btn-primary">JOIN</button>
 </div>
-<script src="/js/member/member.js?ver=1.0"></script>
+<script src="/js/member.js?ver=1.0"></script>
 <div th:replace="/layout/footer.html" :: fragment-footer></div>
 
 

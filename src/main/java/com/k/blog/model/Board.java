@@ -35,7 +35,6 @@ public class Board {
     @JoinColumn(name = "memberId")
     private Member member; // DB는 오브젝트를 저장할 수 없다. FK, 자바는 저장할 수 있다
 
-    @ColumnDefault("0")
     private int count; // 조회수
 
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)

@@ -26,7 +26,7 @@ public class DummyControllerTest {
     public String join(Member member) {
         // 아이디, 비밀번호, 이메일만 받자
         System.out.println("member.getId() = " + member.getId());
-        System.out.println("member.getName() = " + member.getMemberName());
+        System.out.println("member.getName() = " + member.getUsername());
         System.out.println("member.getPass() = " + member.getPassword());
         System.out.println("member.getEm() = " + member.getEmail());
         System.out.println("member.getRole() = " + member.getRole());

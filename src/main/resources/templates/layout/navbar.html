@@ -1,31 +1,51 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <nav th:fragment="fragment-navbar" class="navbar navbar-expand-md bg-dark navbar-dark">
     <a class="navbar-brand" href="/">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav" th:if="${session.loginMember == null}">
+<!--        <ul class="navbar-nav" th:if="${session.loginMember == null}">-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" th:href="@{/loginForm}">Login</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" th:href="@{/joinForm}">Join</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+        <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/loginForm}">Login</a>
+                <a class="nav-link" th:href="@{/auth/loginForm}">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/joinForm}">Join</a>
+                <a class="nav-link" th:href="@{/auth/joinForm}">Join</a>
             </li>
         </ul>
-        <ul class="navbar-nav" th:if="${session.loginMember != null}">
+        <ul class="navbar-nav" sec:authorize="isAuthenticated()" sec:authentication property="principal" var="principal">
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/board/write}">Write</a>
+                <a class="nav-link" th:href="@{/board/saveForm}">Write</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/member/detail}">MemberDetail</a>
+                <a class="nav-link" th:href="@{/member/detailForm}">Info</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/logout}">Logout</a>
             </li>
         </ul>
+<!--        <ul class="navbar-nav" th:if="${session.loginMember != null}">-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" th:href="@{/board/write}">Write</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" th:href="@{/member/detail}">MemberDetail</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" th:href="@{/logout}">Logout</a>-->
+<!--            </li>-->
+<!--        </ul>-->
     </div>
 </nav>
 <br/>
+<body>
 
 

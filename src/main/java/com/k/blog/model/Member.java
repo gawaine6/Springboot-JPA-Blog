@@ -1,10 +1,7 @@
 package com.k.blog.model;
 
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -27,9 +24,9 @@ public class Member {
     private Long id; // 시퀀스
 
     @Column(nullable = false, length = 30, unique = true)
-    private String memberName; // 아이디
+    private String username; // 아이디
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 2000)
     private String password;
 
     @Column(nullable = false, length = 50)
